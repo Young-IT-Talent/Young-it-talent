@@ -6,522 +6,243 @@
 <title>Young IT Talent — Success Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Noto+Sans+Armenian:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #050c1a;
-  --card: #0d1828;
-  --blue: #1d6fe8;
-  --blue2: #3b82f6;
-  --cyan: #22d3ee;
-  --gold: #f59e0b;
-  --gold2: #fbbf24;
-  --green: #10b981;
-  --white: #eef4ff;
-  --gray: #7a94b4;
-  --border: rgba(29,111,232,0.14);
-  --border2: rgba(29,111,232,0.26);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--navy);
-  color: var(--white);
-  font-family: 'Noto Sans Armenian', sans-serif;
-  overflow-x: hidden;
-  line-height: 1.65;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 200;
-  padding: .9rem 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(5,12,26,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
-.nav-logo .top {
-  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
-  background: linear-gradient(90deg, var(--cyan), var(--blue2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.nav-logo .sub { font-size: .6rem; color: var(--gold2); letter-spacing: 1.5px; text-transform: uppercase; -webkit-text-fill-color: var(--gold2); }
-.nav-right { display: flex; align-items: center; gap: .9rem; }
-.nav-online {
-  display: flex; align-items: center; gap: .4rem;
-  font-size: .75rem; color: var(--green);
-  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
-  padding: .28rem .75rem; border-radius: 999px;
-}
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.4s infinite; }
-@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
-.btn-nav {
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff; text-decoration: none; padding: .5rem 1.25rem;
-  border-radius: 999px; font-size: .82rem; font-weight: 700;
-  transition: opacity .2s, transform .2s;
-}
-.btn-nav:hover { opacity: .85; transform: translateY(-1px); }
-@media(max-width:500px){ .nav-online { display: none; } }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 8rem 1.5rem 5rem;
-  position: relative; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(29,111,232,0.2) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 35% at 85% 85%, rgba(34,211,238,0.07) 0%, transparent 60%);
-  pointer-events: none;
-}
-.grid-bg {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(29,111,232,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29,111,232,0.035) 1px, transparent 1px);
-  background-size: 64px 64px; pointer-events: none;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 20%, transparent 100%);
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: .45rem;
-  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
-  padding: .32rem 1rem; border-radius: 999px;
-  font-size: .75rem; color: var(--green); margin-bottom: 1.2rem;
-  animation: fadeUp .6s ease both;
-}
-.academy-tag {
-  font-size: .7rem; color: var(--gold2); letter-spacing: 1px; text-transform: uppercase;
-  margin-bottom: .9rem; animation: fadeUp .6s .05s ease both;
-}
-.academy-tag span {
-  background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.22);
-  padding: .2rem .8rem; border-radius: 999px;
-}
-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2.4rem, 7vw, 5rem);
-  font-weight: 800; line-height: 1.07; letter-spacing: -2px;
-  margin-bottom: 1.3rem;
-  animation: fadeUp .7s .1s ease both;
-}
-h1 em { font-style: normal; color: var(--cyan); }
-h1 .gold { color: var(--gold2); }
-.online-pill {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.22);
-  padding: .4rem 1.1rem; border-radius: 999px;
-  font-size: .82rem; color: var(--green); font-weight: 600;
-  margin-bottom: .9rem; animation: fadeUp .7s .14s ease both;
-}
-.hero-sub {
-  max-width: 560px; font-size: 1rem; color: var(--gray);
-  margin-bottom: 1.8rem; animation: fadeUp .7s .18s ease both; line-height: 1.75;
-}
-.hero-sub strong { color: var(--white); }
-.grade-strip {
-  display: inline-flex; align-items: center; gap: .5rem; flex-wrap: wrap; justify-content: center;
-  margin-bottom: 2rem; animation: fadeUp .7s .22s ease both;
-}
-.gp {
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff; padding: .28rem .8rem; border-radius: 999px;
-  font-size: .77rem; font-weight: 700;
-}
-.price-row {
-  display: inline-flex; border: 1px solid var(--border2); border-radius: 16px;
-  overflow: hidden; margin-bottom: 2.2rem; animation: fadeUp .7s .26s ease both;
-}
-.pr-cell { padding: .85rem 1.5rem; text-align: center; }
-.pr-cell:first-child { background: rgba(29,111,232,0.09); }
-.pr-cell:last-child { background: rgba(16,185,129,0.07); }
-.pr-sep { width: 1px; background: var(--border2); }
-.pr-val { font-size: 1.35rem; font-weight: 800; color: var(--gold2); }
-.pr-val.g { color: var(--green); }
-.pr-lbl { font-size: .7rem; color: var(--gray); margin-top: .1rem; }
-.hero-btns {
-  display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-  animation: fadeUp .7s .3s ease both;
-}
-.btn-primary {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff; text-decoration: none;
-  padding: .95rem 2.2rem; border-radius: 999px;
-  font-size: 1rem; font-weight: 700;
-  box-shadow: 0 8px 28px rgba(29,111,232,0.32);
-  transition: transform .2s, box-shadow .2s;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(29,111,232,0.44); }
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: .5rem;
-  border: 1px solid var(--border2); color: var(--white); text-decoration: none;
-  padding: .95rem 1.9rem; border-radius: 999px; font-size: 1rem; font-weight: 600;
-  transition: background .2s;
-}
-.btn-ghost:hover { background: rgba(29,111,232,0.09); }
-.urgency { font-size: .77rem; color: #f87171; margin-top: 1rem; animation: fadeUp .7s .38s ease both; }
-
-/* ── TRUST ── */
-.trust {
-  padding: 1.8rem 1.5rem;
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  background: rgba(255,255,255,0.013);
-}
-.trust-inner {
-  max-width: 960px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: center;
-  gap: 2.5rem; flex-wrap: wrap;
-}
-.t-item { display: flex; align-items: center; gap: .55rem; font-size: .84rem; color: var(--gray); }
-.t-item strong { color: var(--white); }
-
-/* ── COMMON ── */
-section { padding: 5rem 1.5rem; }
-.container { max-width: 1000px; margin: 0 auto; }
-.eyebrow { font-size: .7rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cyan); margin-bottom: .6rem; font-weight: 600; }
-h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.75rem, 4.5vw, 2.9rem);
-  font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: .9rem;
-}
-.sec-sub { color: var(--gray); max-width: 560px; font-size: .95rem; margin-bottom: 2.6rem; line-height: 1.7; }
-hr.div { border: none; border-top: 1px solid var(--border); }
-
-/* ── ONLINE SECTION ── */
-.online-banner {
-  background: linear-gradient(135deg, rgba(16,185,129,0.07), rgba(29,111,232,0.07));
-  border: 1px solid rgba(16,185,129,0.2); border-radius: 22px;
-  padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
-}
-@media(max-width:640px){ .online-banner { grid-template-columns: 1fr; } }
-.ob-left h3 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: .7rem; }
-.ob-left p { color: var(--gray); font-size: .93rem; line-height: 1.75; }
-.ob-right { display: flex; flex-direction: column; gap: .8rem; }
-.ob-item {
-  display: flex; align-items: flex-start; gap: .8rem;
-  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-  border-radius: 13px; padding: 1rem 1.1rem;
-}
-.ob-icon { font-size: 1.3rem; flex-shrink: 0; }
-.ob-item h4 { font-weight: 700; font-size: .9rem; margin-bottom: .15rem; }
-.ob-item p { font-size: .8rem; color: var(--gray); }
-
-/* ── ACADEMY ── */
-.academy-wrap {
-  background: linear-gradient(135deg, rgba(245,158,11,0.07), rgba(29,111,232,0.07));
-  border: 1px solid rgba(245,158,11,0.2); border-radius: 22px;
-  padding: 2.8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.2rem; align-items: center;
-}
-@media(max-width:640px){ .academy-wrap { grid-template-columns: 1fr; } }
-.ac-badge {
-  display: inline-flex; align-items: center; gap: .4rem;
-  background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);
-  padding: .28rem .8rem; border-radius: 999px;
-  font-size: .68rem; color: var(--gold2); font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  margin-bottom: .9rem;
-}
-.academy-wrap h3 { font-family: 'Syne', sans-serif; font-size: 1.55rem; font-weight: 800; margin-bottom: .75rem; }
-.academy-wrap p { color: var(--gray); font-size: .93rem; line-height: 1.75; }
-.ac-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
-.ac-stat {
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-  border-radius: 13px; padding: 1.1rem; text-align: center;
-}
-.ac-stat .val { font-size: 1.7rem; font-weight: 800; color: var(--gold2); }
-.ac-stat .lbl { font-size: .72rem; color: var(--gray); margin-top: .15rem; }
-
-/* ── STEPS ── */
-.steps { display: flex; flex-direction: column; }
-.step {
-  display: grid; grid-template-columns: 54px 1fr; gap: 1.3rem;
-  padding: 1.7rem 0; border-bottom: 1px solid var(--border);
-  opacity: 0; transform: translateY(16px); transition: opacity .5s, transform .5s;
-}
-.step.vis { opacity: 1; transform: none; }
-.step:last-child { border-bottom: none; }
-.step-n {
-  width: 50px; height: 50px; border-radius: 13px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
-}
-.step h3 { font-weight: 700; margin-bottom: .3rem; font-size: 1rem; }
-.step p { color: var(--gray); font-size: .9rem; }
-
-/* ── COURSE ── */
-.course-box {
-  background: var(--card); border: 1px solid var(--border2);
-  border-radius: 22px; overflow: hidden; margin-top: 2.2rem;
-}
-.cb-top {
-  background: linear-gradient(135deg, rgba(29,111,232,0.14), rgba(34,211,238,0.07));
-  padding: 2.4rem; text-align: center; border-bottom: 1px solid var(--border);
-}
-.cb-top .emoji { font-size: 2.2rem; margin-bottom: .7rem; }
-.cb-top h3 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-.cb-top p { color: var(--gray); font-size: .9rem; max-width: 500px; margin: 0 auto; line-height: 1.7; }
-.cb-grid { display: grid; grid-template-columns: 1fr 1fr; }
-@media(max-width:560px){ .cb-grid { grid-template-columns: 1fr; } }
-.cb-item {
-  padding: 1.7rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-}
-.cb-item:nth-child(2n) { border-right: none; }
-.cb-item:nth-child(3), .cb-item:nth-child(4) { border-bottom: none; }
-@media(max-width:560px){
-  .cb-item { border-right: none; }
-  .cb-item:last-child { border-bottom: none; }
-  .cb-item:nth-child(3) { border-bottom: 1px solid var(--border); }
-}
-.cb-icon { font-size: 1.7rem; margin-bottom: .6rem; }
-.cb-tag {
-  display: inline-block; font-size: .65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  padding: .14rem .6rem; border-radius: 999px; margin-bottom: .5rem;
-}
-.tb { background: rgba(29,111,232,0.14); color: var(--blue2); }
-.tc { background: rgba(34,211,238,0.11); color: var(--cyan); }
-.tg { background: rgba(245,158,11,0.11); color: var(--gold2); }
-.tn { background: rgba(16,185,129,0.11); color: var(--green); }
-.cb-item h4 { font-weight: 700; margin-bottom: .3rem; font-size: .95rem; }
-.cb-item p { font-size: .84rem; color: var(--gray); line-height: 1.65; }
-.cb-bottom {
-  padding: 1.6rem; text-align: center; border-top: 1px solid var(--border);
-  background: rgba(245,158,11,0.04);
-}
-.cb-bottom p { font-size: .88rem; color: var(--gray); }
-.cb-bottom strong { color: var(--gold2); }
-
-/* ── SCORE ── */
-.score-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; margin-top: 2.2rem; }
-@media(max-width:600px){ .score-row { grid-template-columns: 1fr; } }
-.sc {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 15px; padding: 1.7rem; text-align: center;
-}
-.sc-i { font-size: 1.9rem; margin-bottom: .75rem; }
-.sc h4 { font-weight: 700; margin-bottom: .35rem; }
-.sc p { font-size: .85rem; color: var(--gray); }
-
-/* ── REG STEPS ── */
-.reg-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: .9rem; margin-top: 2.2rem; }
-@media(max-width:680px){ .reg-grid { grid-template-columns: 1fr 1fr; } }
-@media(max-width:380px){ .reg-grid { grid-template-columns: 1fr; } }
-.rg {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 15px; padding: 1.4rem; text-align: center; position: relative;
-}
-.rg-num {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  width: 22px; height: 22px; border-radius: 50%;
-  font-size: .7rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
-}
-.rg-i { font-size: 1.5rem; margin: .5rem 0 .55rem; }
-.rg p { font-size: .82rem; color: var(--gray); }
-.rg strong { color: var(--white); }
-
-/* ── CONTACT ── */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.2rem; align-items: start; }
-@media(max-width:680px){ .contact-grid { grid-template-columns: 1fr; } }
-.ci-left h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: .75rem; }
-.ci-left p { color: var(--gray); font-size: .92rem; line-height: 1.75; margin-bottom: 1.4rem; }
-.btn-insta {
-  display: inline-flex; align-items: center; gap: .65rem;
-  background: linear-gradient(135deg, #833ab4, #fd1d1d, #f77737);
-  color: #fff; text-decoration: none;
-  padding: .85rem 1.7rem; border-radius: 13px;
-  font-size: .92rem; font-weight: 700;
-  transition: opacity .2s, transform .2s; margin-bottom: .8rem;
-}
-.btn-insta:hover { opacity: .87; transform: translateY(-2px); }
-.btn-insta svg { width: 20px; height: 20px; flex-shrink: 0; }
-.ci-note { font-size: .76rem; color: var(--gray); }
-.msg-form {
-  background: var(--card); border: 1px solid var(--border2);
-  border-radius: 20px; padding: 1.8rem;
-}
-.msg-form h4 { font-weight: 700; margin-bottom: 1.1rem; font-size: .97rem; }
-.fg { margin-bottom: .9rem; }
-.fg label { display: block; font-size: .77rem; color: var(--gray); margin-bottom: .38rem; font-weight: 600; }
-.fg input, .fg textarea {
-  width: 100%; background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border2); border-radius: 10px;
-  padding: .72rem 1rem; color: var(--white);
-  font-family: 'Noto Sans Armenian', sans-serif; font-size: .88rem;
-  outline: none; transition: border-color .2s; resize: none;
-}
-.fg input:focus, .fg textarea:focus { border-color: var(--blue2); }
-.fg input::placeholder, .fg textarea::placeholder { color: var(--gray); }
-.btn-send {
-  width: 100%; display: flex; align-items: center; justify-content: center; gap: .5rem;
-  background: linear-gradient(135deg, #833ab4, #fd1d1d, #f77737);
-  color: #fff; border: none; cursor: pointer;
-  padding: .88rem; border-radius: 10px;
-  font-size: .93rem; font-weight: 700; font-family: 'Noto Sans Armenian', sans-serif;
-  transition: opacity .2s, transform .2s;
-}
-.btn-send:hover { opacity: .87; transform: translateY(-2px); }
-.form-ok { display: none; text-align: center; padding: 1.2rem; color: var(--green); font-weight: 600; font-size: .9rem; }
-
-/* ── FINAL CTA ── */
-.final-cta {
-  text-align: center; padding: 5.5rem 1.5rem;
-  background: linear-gradient(180deg, transparent, rgba(29,111,232,0.05), transparent);
-}
-.final-box {
-  max-width: 620px; margin: 0 auto;
-  background: var(--card); border: 1px solid var(--border2);
-  border-radius: 26px; padding: 3.2rem 2.5rem;
-}
-.limit-tag {
-  display: inline-block;
-  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.28);
-  color: #f87171; padding: .28rem .85rem; border-radius: 999px;
-  font-size: .75rem; font-weight: 700; margin-bottom: 1.2rem;
-}
-.final-box h2 { margin-bottom: .75rem; }
-.final-box p { color: var(--gray); font-size: .93rem; margin-bottom: 1.8rem; line-height: 1.75; }
-.cta-price-row {
-  display: inline-flex; align-items: center; gap: .6rem;
-  background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.18);
-  border-radius: 13px; padding: .7rem 1.4rem; margin-bottom: 1.8rem;
-}
-.cp-amt { font-size: 1.5rem; font-weight: 800; color: var(--gold2); }
-.cp-sep { width: 1px; height: 34px; background: rgba(255,255,255,0.09); }
-.cp-free { font-weight: 700; color: var(--green); }
-.cp-sub { font-size: .72rem; color: var(--gray); }
-
-/* ── FOOTER ── */
-footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align: center; }
-.f-inner { max-width: 900px; margin: 0 auto; }
-.f-logo {
-  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800;
-  background: linear-gradient(90deg, var(--cyan), var(--blue2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: .25rem;
-}
-.f-by { font-size: .72rem; color: var(--gold2); margin-bottom: 1.1rem; }
-.f-links { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-bottom: .9rem; }
-.f-links a { color: var(--gray); text-decoration: none; font-size: .82rem; transition: color .2s; }
-.f-links a:hover { color: var(--white); }
-.f-copy { font-size: .75rem; color: var(--gray); }
-
-@keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: none; } }
+:root{--navy:#050c1a;--card:#0d1828;--blue:#1d6fe8;--blue2:#3b82f6;--cyan:#22d3ee;--gold:#f59e0b;--gold2:#fbbf24;--green:#10b981;--white:#eef4ff;--gray:#7a94b4;--border:rgba(29,111,232,0.14);--border2:rgba(29,111,232,0.26);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'Noto Sans Armenian',sans-serif;overflow-x:hidden;line-height:1.65;}
+nav{position:fixed;top:0;width:100%;z-index:200;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(5,12,26,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;flex-direction:column;line-height:1.1;}
+.nav-logo .top{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;background:linear-gradient(90deg,var(--cyan),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-logo .sub{font-size:.6rem;color:var(--gold2);letter-spacing:1.5px;text-transform:uppercase;-webkit-text-fill-color:var(--gold2);}
+.nav-right{display:flex;align-items:center;gap:.9rem;}
+.nav-online{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--green);background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);padding:.28rem .75rem;border-radius:999px;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.btn-nav{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;text-decoration:none;padding:.5rem 1.25rem;border-radius:999px;font-size:.82rem;font-weight:700;transition:opacity .2s,transform .2s;}
+.btn-nav:hover{opacity:.85;transform:translateY(-1px);}
+@media(max-width:500px){.nav-online{display:none;}}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 0%,rgba(29,111,232,0.2) 0%,transparent 70%),radial-gradient(ellipse 45% 35% at 85% 85%,rgba(34,211,238,0.07) 0%,transparent 60%);pointer-events:none;}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(29,111,232,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(29,111,232,0.035) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;mask-image:radial-gradient(ellipse 85% 75% at 50% 40%,black 20%,transparent 100%);}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);padding:.32rem 1rem;border-radius:999px;font-size:.75rem;color:var(--green);margin-bottom:1.2rem;animation:fadeUp .6s ease both;}
+.academy-tag{font-size:.7rem;color:var(--gold2);letter-spacing:1px;margin-bottom:.9rem;animation:fadeUp .6s .05s ease both;}
+.academy-tag span{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.22);padding:.2rem .8rem;border-radius:999px;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:800;line-height:1.07;letter-spacing:-2px;margin-bottom:1.3rem;animation:fadeUp .7s .1s ease both;}
+h1 em{font-style:normal;color:var(--cyan);}
+h1 .gold{color:var(--gold2);}
+.online-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.22);padding:.4rem 1.1rem;border-radius:999px;font-size:.82rem;color:var(--green);font-weight:600;margin-bottom:.9rem;animation:fadeUp .7s .14s ease both;}
+.hero-sub{max-width:560px;font-size:1rem;color:var(--gray);margin-bottom:1.8rem;animation:fadeUp .7s .18s ease both;line-height:1.75;}
+.hero-sub strong{color:var(--white);}
+.grade-strip{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem;animation:fadeUp .7s .22s ease both;}
+.gp{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:.28rem .8rem;border-radius:999px;font-size:.77rem;font-weight:700;}
+.price-row{display:inline-flex;border:1px solid var(--border2);border-radius:16px;overflow:hidden;margin-bottom:2.2rem;animation:fadeUp .7s .26s ease both;}
+.pr-cell{padding:.85rem 1.5rem;text-align:center;}
+.pr-cell:first-child{background:rgba(29,111,232,0.09);}
+.pr-cell:last-child{background:rgba(16,185,129,0.07);}
+.pr-sep{width:1px;background:var(--border2);}
+.pr-val{font-size:1.35rem;font-weight:800;color:var(--gold2);}
+.pr-val.g{color:var(--green);}
+.pr-lbl{font-size:.7rem;color:var(--gray);margin-top:.1rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .3s ease both;}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;text-decoration:none;padding:.95rem 2.2rem;border-radius:999px;font-size:1rem;font-weight:700;box-shadow:0 8px 28px rgba(29,111,232,0.32);transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(29,111,232,0.44);}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border2);color:var(--white);text-decoration:none;padding:.95rem 1.9rem;border-radius:999px;font-size:1rem;font-weight:600;transition:background .2s;}
+.btn-ghost:hover{background:rgba(29,111,232,0.09);}
+.urgency{font-size:.77rem;color:#f87171;margin-top:1rem;animation:fadeUp .7s .38s ease both;}
+.trust{padding:1.8rem 1.5rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.013);}
+.trust-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+.t-item{display:flex;align-items:center;gap:.55rem;font-size:.84rem;color:var(--gray);}
+.t-item strong{color:var(--white);}
+section{padding:5rem 1.5rem;}
+.container{max-width:1000px;margin:0 auto;}
+.eyebrow{font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem;font-weight:600;}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4.5vw,2.9rem);font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:.9rem;}
+.sec-sub{color:var(--gray);max-width:560px;font-size:.95rem;margin-bottom:2.6rem;line-height:1.7;}
+hr.div{border:none;border-top:1px solid var(--border);}
+.online-banner{background:linear-gradient(135deg,rgba(16,185,129,0.07),rgba(29,111,232,0.07));border:1px solid rgba(16,185,129,0.2);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+@media(max-width:640px){.online-banner{grid-template-columns:1fr;}}
+.ob-left h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.7rem;}
+.ob-left p{color:var(--gray);font-size:.93rem;line-height:1.75;}
+.ob-right{display:flex;flex-direction:column;gap:.8rem;}
+.ob-item{display:flex;align-items:flex-start;gap:.8rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:13px;padding:1rem 1.1rem;}
+.ob-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem;}
+.ob-item h4{font-weight:700;font-size:.9rem;margin-bottom:.15rem;}
+.ob-item p{font-size:.8rem;color:var(--gray);}
+.academy-wrap{background:linear-gradient(135deg,rgba(245,158,11,0.07),rgba(29,111,232,0.07));border:1px solid rgba(245,158,11,0.2);border-radius:22px;padding:2.8rem;display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:center;}
+@media(max-width:640px){.academy-wrap{grid-template-columns:1fr;}}
+.ac-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);padding:.28rem .8rem;border-radius:999px;font-size:.68rem;color:var(--gold2);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.9rem;}
+.academy-wrap h3{font-family:'Syne',sans-serif;font-size:1.55rem;font-weight:800;margin-bottom:.75rem;}
+.academy-wrap p{color:var(--gray);font-size:.93rem;line-height:1.75;}
+.ac-stats{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.ac-stat{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:13px;padding:1.1rem;text-align:center;}
+.ac-stat .val{font-size:1.7rem;font-weight:800;color:var(--gold2);}
+.ac-stat .lbl{font-size:.72rem;color:var(--gray);margin-top:.15rem;}
+.steps{display:flex;flex-direction:column;}
+.step{display:grid;grid-template-columns:54px 1fr;gap:1.3rem;padding:1.7rem 0;border-bottom:1px solid var(--border);opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;}
+.step.vis{opacity:1;transform:none;}
+.step:last-child{border-bottom:none;}
+.step-n{width:50px;height:50px;border-radius:13px;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;}
+.step h3{font-weight:700;margin-bottom:.3rem;font-size:1rem;}
+.step p{color:var(--gray);font-size:.9rem;}
+.course-box{background:var(--card);border:1px solid var(--border2);border-radius:22px;overflow:hidden;margin-top:2.2rem;}
+.cb-top{background:linear-gradient(135deg,rgba(29,111,232,0.14),rgba(34,211,238,0.07));padding:2.4rem;text-align:center;border-bottom:1px solid var(--border);}
+.cb-top .emoji{font-size:2.2rem;margin-bottom:.7rem;}
+.cb-top h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.5rem;}
+.cb-top p{color:var(--gray);font-size:.9rem;max-width:500px;margin:0 auto;line-height:1.7;}
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:560px){.cb-grid{grid-template-columns:1fr;}}
+.cb-item{padding:1.7rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.cb-item:nth-child(2n){border-right:none;}
+.cb-item:nth-child(3),.cb-item:nth-child(4){border-bottom:none;}
+@media(max-width:560px){.cb-item{border-right:none;}.cb-item:last-child{border-bottom:none;}.cb-item:nth-child(3){border-bottom:1px solid var(--border);}}
+.cb-icon{font-size:1.7rem;margin-bottom:.6rem;}
+.cb-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.14rem .6rem;border-radius:999px;margin-bottom:.5rem;}
+.tb{background:rgba(29,111,232,0.14);color:var(--blue2);}
+.tc{background:rgba(34,211,238,0.11);color:var(--cyan);}
+.tg{background:rgba(245,158,11,0.11);color:var(--gold2);}
+.tn{background:rgba(16,185,129,0.11);color:var(--green);}
+.cb-item h4{font-weight:700;margin-bottom:.3rem;font-size:.95rem;}
+.cb-item p{font-size:.84rem;color:var(--gray);line-height:1.65;}
+.cb-bottom{padding:1.6rem;text-align:center;border-top:1px solid var(--border);background:rgba(245,158,11,0.04);}
+.cb-bottom p{font-size:.88rem;color:var(--gray);}
+.cb-bottom strong{color:var(--gold2);}
+.learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem;}
+@media(max-width:680px){.learn-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.learn-grid{grid-template-columns:1fr;}}
+.lc{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.4rem;transition:border-color .25s,transform .25s;}
+.lc:hover{border-color:var(--blue2);transform:translateY(-4px);}
+.lc-i{font-size:1.7rem;margin-bottom:.7rem;}
+.lc-t{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);margin-bottom:.35rem;display:block;}
+.lc h4{font-weight:700;margin-bottom:.28rem;font-size:.93rem;}
+.lc p{font-size:.81rem;color:var(--gray);line-height:1.6;}
+.score-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem;}
+@media(max-width:600px){.score-row{grid-template-columns:1fr;}}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.7rem;text-align:center;}
+.sc-i{font-size:1.9rem;margin-bottom:.75rem;}
+.sc h4{font-weight:700;margin-bottom:.35rem;}
+.sc p{font-size:.85rem;color:var(--gray);}
+.reg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:2.2rem;}
+@media(max-width:680px){.reg-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.reg-grid{grid-template-columns:1fr;}}
+.rg{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:1.4rem;text-align:center;position:relative;}
+.rg-num{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--blue),var(--cyan));width:22px;height:22px;border-radius:50%;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.rg-i{font-size:1.5rem;margin:.5rem 0 .55rem;}
+.rg p{font-size:.82rem;color:var(--gray);}
+.rg strong{color:var(--white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.2rem;align-items:start;}
+@media(max-width:680px){.contact-grid{grid-template-columns:1fr;}}
+.ci-left h3{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:.75rem;}
+.ci-left p{color:var(--gray);font-size:.92rem;line-height:1.75;margin-bottom:1.4rem;}
+.btn-insta{display:inline-flex;align-items:center;gap:.65rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:#fff;text-decoration:none;padding:.85rem 1.7rem;border-radius:13px;font-size:.92rem;font-weight:700;transition:opacity .2s,transform .2s;margin-bottom:.8rem;}
+.btn-insta:hover{opacity:.87;transform:translateY(-2px);}
+.btn-insta svg{width:20px;height:20px;flex-shrink:0;}
+.ci-note{font-size:.76rem;color:var(--gray);}
+.msg-form{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:1.8rem;}
+.msg-form h4{font-weight:700;margin-bottom:1.1rem;font-size:.97rem;}
+.fg{margin-bottom:.9rem;}
+.fg label{display:block;font-size:.77rem;color:var(--gray);margin-bottom:.38rem;font-weight:600;}
+.fg input,.fg textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:10px;padding:.72rem 1rem;color:var(--white);font-family:'Noto Sans Armenian',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;resize:none;}
+.fg input:focus,.fg textarea:focus{border-color:var(--blue2);}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--gray);}
+.btn-send{width:100%;display:flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);color:#fff;border:none;cursor:pointer;padding:.88rem;border-radius:10px;font-size:.93rem;font-weight:700;font-family:'Noto Sans Armenian',sans-serif;transition:opacity .2s,transform .2s;}
+.btn-send:hover{opacity:.87;transform:translateY(-2px);}
+.form-ok{display:none;text-align:center;padding:1.2rem;color:var(--green);font-weight:600;font-size:.9rem;}
+.final-cta{text-align:center;padding:5.5rem 1.5rem;background:linear-gradient(180deg,transparent,rgba(29,111,232,0.05),transparent);}
+.final-box{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border2);border-radius:26px;padding:3.2rem 2.5rem;}
+.limit-tag{display:inline-block;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.28);color:#f87171;padding:.28rem .85rem;border-radius:999px;font-size:.75rem;font-weight:700;margin-bottom:1.2rem;}
+.final-box h2{margin-bottom:.75rem;}
+.final-box p{color:var(--gray);font-size:.93rem;margin-bottom:1.8rem;line-height:1.75;}
+.cta-price-row{display:inline-flex;align-items:center;gap:.6rem;background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.18);border-radius:13px;padding:.7rem 1.4rem;margin-bottom:1.8rem;}
+.cp-amt{font-size:1.5rem;font-weight:800;color:var(--gold2);}
+.cp-sep{width:1px;height:34px;background:rgba(255,255,255,0.09);}
+.cp-free{font-weight:700;color:var(--green);}
+.cp-sub{font-size:.72rem;color:var(--gray);}
+footer{border-top:1px solid var(--border);padding:2.2rem 1.5rem;text-align:center;}
+.f-inner{max-width:900px;margin:0 auto;}
+.f-logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;background:linear-gradient(90deg,var(--cyan),var(--blue2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.25rem;}
+.f-by{font-size:.72rem;color:var(--gold2);margin-bottom:1.1rem;}
+.f-links{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:.9rem;}
+.f-links a{color:var(--gray);text-decoration:none;font-size:.82rem;transition:color .2s;}
+.f-links a:hover{color:var(--white);}
+.f-copy{font-size:.75rem;color:var(--gray);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div class="top">Young IT Talent</div>
     <div class="sub">by Success Academy</div>
   </div>
   <div class="nav-right">
-    <div class="nav-online"><span class="dot"></span> 100% Առցանց</div>
+    <div class="nav-online"><span class="dot"></span> 100% առցանց</div>
     <a href="#contact" class="btn-nav">Գրանցվել</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="grid-bg"></div>
-
-  <div class="hero-badge"><span class="dot"></span> Գրանցումները բաց են · Տեղերը սահմանափակ</div>
-  <p class="academy-tag"><span>✦ Success Academy — Շրջանավարտները միջազգային ընկերություններում</span></p>
-
-  <h1>
-    Քո երեխան կսկսի<br>
-    <em>ստեղծել</em> — ոչ<br>
-    <span class="gold">պարզ օգտագործել</span>
-  </h1>
-
-  <div class="online-pill">
-    🌍 100% Առցանց · Ամբողջ աշխարհից · 5–12-րդ դասարան
-  </div>
-
+  <div class="hero-badge"><span class="dot"></span> Գրանցումները բաց են · Տեղերը սահմանափակ են</div>
+  <p class="academy-tag"><span>✦ Success Academy · կրթություն, որը տանում է իրական արդյունքի</span></p>
+  <h1>Երեխան չի սովորում<br><em>պարզապես օգտագործել</em><br><span class="gold">նա սկսում է ստեղծել</span></h1>
+  <div class="online-pill">🌍 100% առցանց · մասնակցություն աշխարհի ցանկացած կետից · 5–12-րդ դասարան</div>
   <p class="hero-sub">
-    <strong>Young IT Talent</strong>-ը մրցույթ է 5–12-րդ դասարանի դպրոցականների համար։
-    Մասնակցիր, փորձիր ուժերդ, և լավագույն արդյունքի դեպքում ստացիր
-    <strong>ԱՆՎՃԱՐ 1 ամսյա ամբողջական IT կրթություն</strong> — ամբողջ աշխարհի ցանկացած կետից։
+    <strong>Young IT Talent</strong>-ը առցանց մրցույթ է դպրոցականների համար, որտեղ երեխաները փորձում են իրենց ուժերը IT ոլորտում։
+    Լավագույն արդյունք ցուցաբերած մասնակիցները ստանում են <strong>1 ամսյա ամբողջական IT դասընթաց՝ անվճար</strong>։
   </p>
-
   <div class="grade-strip">
-    <span style="font-size:.78rem;color:var(--gray);">Դասարան՝</span>
+    <span style="font-size:.78rem;color:var(--gray);">Դասարաններ՝</span>
     <span class="gp">5</span><span class="gp">6</span><span class="gp">7</span><span class="gp">8</span>
     <span class="gp">9</span><span class="gp">10</span><span class="gp">11</span><span class="gp">12</span>
   </div>
-
   <div class="price-row">
-    <div class="pr-cell">
-      <div class="pr-val">7,000 ֏</div>
-      <div class="pr-lbl">մրցույթ</div>
-    </div>
+    <div class="pr-cell"><div class="pr-val">7,000 ֏</div><div class="pr-lbl">մրցույթի մասնակցություն</div></div>
     <div class="pr-sep"></div>
-    <div class="pr-cell">
-      <div class="pr-val g">ԱՆՎՃԱՐ</div>
-      <div class="pr-lbl">1 ամիս դասընթաց հաղթողներին</div>
-    </div>
+    <div class="pr-cell"><div class="pr-val g">ԱՆՎՃԱՐ</div><div class="pr-lbl">1 ամսյա դասընթաց հաղթողների համար</div></div>
   </div>
-
   <div class="hero-btns">
-    <a href="#contact" class="btn-primary">
-      Գրանցվել հիմա
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#course" class="btn-ghost">Տեսնել դասընթացը ↓</a>
+    <a href="#contact" class="btn-primary">Գրանցվել հիմա <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="#course" class="btn-ghost">Տեսնել ծրագիրը ↓</a>
   </div>
-  <p class="urgency">⚠️ Տեղերի համալրումից հետո գրանցումները փակվում են</p>
+  <p class="urgency">⚠️ Տեղերի համալրումից հետո գրանցումները կփակվեն</p>
 </section>
 
-<!-- TRUST -->
 <div class="trust">
   <div class="trust-inner">
-    <div class="t-item">🌍 <strong>100% Առցանց</strong> — ամենուր</div>
-    <div class="t-item">🎓 Դասարան <strong>5–12</strong></div>
-    <div class="t-item">🏢 <strong>Success Academy</strong> — կազմ.</div>
-    <div class="t-item">💼 Շրջ. <strong>միջազգային</strong> ընկ-ներում</div>
-    <div class="t-item">🎯 <strong>Ոչ մի</strong> վճ. շարունակություն</div>
+    <div class="t-item">🌍 <strong>100% առցանց</strong> — ցանկացած վայրից</div>
+    <div class="t-item">🎓 <strong>5–12-րդ</strong> դասարան</div>
+    <div class="t-item">🏢 <strong>Success Academy</strong></div>
+    <div class="t-item">💼 Շրջանավարտներ՝ <strong>միջազգային ընկերություններում</strong></div>
+    <div class="t-item">🎯 <strong>Ոչ մի վճարովի շարունակություն</strong></div>
   </div>
 </div>
 
 <hr class="div">
 
-<!-- ONLINE -->
 <section>
   <div class="container">
-    <p class="eyebrow">Ամենուրեք</p>
-    <h2>Կարևոր չէ, թե որ երկրում ես ապրում</h2>
-    <p class="sec-sub">Մրցույթն ու դասընթացը ամբողջությամբ անցկացվում են առցանց — ինտերնետ կա, հնարավոր է։</p>
+    <p class="eyebrow">Առցանց ձևաչափ</p>
+    <h2>Կարևոր չէ՝ որ երկրում եք ապրում</h2>
+    <p class="sec-sub">Մրցույթն ու հետագա դասընթացը ամբողջությամբ անցկացվում են առցանց։ Մասնակցելու համար պետք է միայն ինտերնետ և laptop կամ tablet։</p>
     <div class="online-banner">
       <div class="ob-left">
-        <h3>🌍 100% Առցանց ծրագիր</h3>
-        <p>Հայաստան, Ռուսաստան, ԱՄՆ, Եվրոպա — ամենուր, ձեր ժամային գոտու հարմար ժամանակ։ Ամեն ինչ անցկացվում է online — դասեր, quiz-եր, հանձնարարություններ, կայքի ստեղծում։ Laptop կամ tablet + ինտերնետ — ուրիշ ոչինչ պետք չէ։</p>
+        <h3>🌍 Մասնակցություն աշխարհի ցանկացած կետից</h3>
+        <p>Հայաստան, Եվրոպա, ԱՄՆ կամ այլ երկիր․ երեխան կարող է մասնակցել այնտեղից, որտեղ գտնվում է։ Ամբողջ ինֆորմացիան, առաջադրանքները, տեսանյութերը և դասերի հասանելիությունը տրամադրվում են առցանց՝ հարմար և պարզ ձևաչափով։</p>
       </div>
       <div class="ob-right">
         <div class="ob-item">
           <div class="ob-icon">💻</div>
-          <div>
-            <h4>Laptop կամ tablet</h4>
-            <p>Ձեր երեխային պետք է ինտերնետ կապ և laptop/tablet — ուրիշ ոչինչ</p>
-          </div>
+          <div><h4>Laptop կամ tablet</h4><p>Բավական է ունենալ ինտերնետ և սովորելու համար հարմար սարք։</p></div>
         </div>
         <div class="ob-item">
           <div class="ob-icon">🕐</div>
-          <div>
-            <h4>Ձեր ժամային գոտին</h4>
-            <p>Դասերն անցկացվում են ճկուն ձևով — recording-ներ + live sessions</p>
-          </div>
+          <div><h4>Հարմար ուսուցման ձևաչափ</h4><p>Նյութերը հասանելի են առցանց, իսկ կարևոր ինֆորմացիան կուղարկվի Telegram խմբում։</p></div>
         </div>
         <div class="ob-item">
           <div class="ob-icon">📲</div>
-          <div>
-            <h4>Telegram + Platform</h4>
-            <p>Ամբողջ ինֆոն Telegram-ով, ուսումը Platform-ով — ամեն ինչ մեկ տեղում</p>
-          </div>
+          <div><h4>Telegram + ուսումնական հարթակ</h4><p>Ամեն ինչ մեկ տեղում՝ հայտարարություններ, հղումներ, առաջադրանքներ և դասընթացի հասանելիություն։</p></div>
         </div>
       </div>
     </div>
@@ -530,12 +251,206 @@ footer { border-top: 1px solid var(--border); padding: 2.2rem 1.5rem; text-align
 
 <hr class="div">
 
-<!-- ACADEMY -->
 <section>
   <div class="container">
-    <p class="eyebrow">Կազմ.</p>
-    <h2>Ուժեղ հիմք — ապացուցված արդյունքներով</h2>
+    <p class="eyebrow">Success Academy</p>
+    <h2>Ակադեմիա, որի ուսանողները հասնում են իրական արդյունքների</h2>
     <div class="academy-wrap">
       <div>
-        <div class="ac-badge">✦ Success Academy</div>
-        <h3>Ակադեմիա, որի շրջանավարտներն այսօր աշխատում են միջազ
+        <div class="ac-badge">✦ կազմակերպիչ</div>
+        <h3>Young IT Talent-ը ստեղծվել է Success Academy-ի կողմից</h3>
+        <p>Success Academy-ն կրթական հարթակ է, որտեղ ուսանողները սովորում են ժամանակակից թվային հմտություններ և սկսում կիրառել դրանք իրական նախագծերում։ Մեր նպատակը երեխաներին վաղ տարիքից ճիշտ հիմք տալն է, որպեսզի նրանք ոչ միայն օգտվեն տեխնոլոգիաներից, այլ կարողանան ստեղծել իրենցը։</p>
+      </div>
+      <div class="ac-stats">
+        <div class="ac-stat"><div class="val">1000+</div><div class="lbl">ուսանող</div></div>
+        <div class="ac-stat"><div class="val">🌍</div><div class="lbl">միջազգային ուղղվածություն</div></div>
+        <div class="ac-stat"><div class="val">1 ամիս</div><div class="lbl">ամբողջական ծրագիր</div></div>
+        <div class="ac-stat"><div class="val">100%</div><div class="lbl">գործնական մոտեցում</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section>
+  <div class="container">
+    <p class="eyebrow">Ինչպես է աշխատում</p>
+    <h2>Պարզ ճանապարհ՝ գրանցումից մինչև դասընթաց</h2>
+    <p class="sec-sub">Ամբողջ գործընթացը հստակ է, հեշտ հասկանալի և ամբողջությամբ առցանց։</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div><h3>Գրանցում և մասնակցության վճար</h3><p>Կատարում եք 7,000 ֏ մասնակցության վճարը և լրացնում գրանցման ձևը։</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div><h3>Միացում Telegram խմբին</h3><p>Ստանում եք հրավեր դեպի Telegram խումբ, որտեղ կուղարկվեն մրցույթի բոլոր կարևոր մանրամասները։</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div><h3>Մասնակցություն առցանց մրցույթին</h3><p>Երեխան անցնում է տրամաբանական և IT մտածողությունը ստուգող առաջադրանքներ։ Համակարգը հաշվի է առնում և՛ ճշգրտությունը, և՛ արագությունը։</p></div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div><h3>Լավագույնները ստանում են անվճար դասընթաց</h3><p>Լավագույն արդյունք ցուցաբերած մասնակիցները ստանում են 1 ամսյա ամբողջական IT դասընթաց՝ ամբողջությամբ անվճար։</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="course">
+  <div class="container">
+    <p class="eyebrow">1 ամսյա ծրագիր</p>
+    <h2>Ինչ կսովորի երեխան 1 ամսվա ընթացքում</h2>
+    <p class="sec-sub">Սա պարզապես տեսական դասընթաց չէ։ Երեխան քայլ առ քայլ սովորում է ստեղծել, փորձարկել և ներկայացնել իր առաջին թվային աշխատանքները։</p>
+    <div class="course-box">
+      <div class="cb-top">
+        <div class="emoji">🎓</div>
+        <h3>Ամբողջական IT դասընթաց՝ հաղթողների համար անվճար</h3>
+        <p>Ծրագիրը կառուցված է այնպես, որ երեխան կարողանա հասկանալ հիմքերը, աշխատել AI գործիքներով և ամսվա վերջում ունենալ իր սեփական ստեղծած արդյունքը։</p>
+      </div>
+      <div class="cb-grid">
+        <div class="cb-item">
+          <div class="cb-icon">💻</div>
+          <span class="cb-tag tb">Ծրագրավորում</span>
+          <h4>Ծրագրավորման հիմունքներ</h4>
+          <p>Երեխան կծանոթանա HTML, CSS և JavaScript հիմունքներին՝ պարզ, հասկանալի և գործնական ձևով։</p>
+        </div>
+        <div class="cb-item">
+          <div class="cb-icon">🤖</div>
+          <span class="cb-tag tc">AI գործիքներ</span>
+          <h4>AI-ի ճիշտ օգտագործում</h4>
+          <p>Կսովորի ինչպես օգտագործել AI գործիքները գաղափարներ ստեղծելու, սովորելու, նախագծեր պատրաստելու և աշխատանքը արագացնելու համար։</p>
+        </div>
+        <div class="cb-item">
+          <div class="cb-icon">🌐</div>
+          <span class="cb-tag tg">Կայք</span>
+          <h4>Սեփական կայքի ստեղծում</h4>
+          <p>Դասընթացի ընթացքում երեխան քայլ առ քայլ կստեղծի իր առաջին կայքը և կհասկանա՝ ինչպես է աշխատում վեբը իրականում։</p>
+        </div>
+        <div class="cb-item">
+          <div class="cb-icon">🧪</div>
+          <span class="cb-tag tn">Առաջադրանքներ</span>
+          <h4>Գործնական աշխատանք և quiz-եր</h4>
+          <p>Յուրաքանչյուր թեմա ամրապնդվում է փոքր առաջադրանքներով, quiz-երով և իրական աշխատանքի վրա հիմնված վարժություններով։</p>
+        </div>
+      </div>
+      <div class="cb-bottom">
+        <p>🎯 Դասընթացի ավարտին երեխան կունենա <strong>իր սեփական պատրաստած կայքը</strong> և IT ոլորտի առաջին իրական հիմքը։</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section>
+  <div class="container">
+    <p class="eyebrow">Գնահատում</p>
+    <h2>Ինչպես են ընտրվում հաղթողները</h2>
+    <p class="sec-sub">Արդյունքները գնահատվում են հստակ չափանիշներով, որպեսզի ընտրությունը լինի արդար և թափանցիկ։</p>
+    <div class="score-row">
+      <div class="sc"><div class="sc-i">✅</div><h4>Ճշգրտություն</h4><p>Գնահատվում է ճիշտ պատասխանների քանակը և մտածողության տրամաբանությունը։</p></div>
+      <div class="sc"><div class="sc-i">⚡</div><h4>Արագություն</h4><p>Հաշվի է առնվում, թե որքան արագ է մասնակիցը կատարում առաջադրանքները։</p></div>
+      <div class="sc"><div class="sc-i">🏅</div><h4>Ընդհանուր միավոր</h4><p>Վերջնական արդյունքը ձևավորվում է ճշգրտության և արագության համադրությամբ։</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section>
+  <div class="container">
+    <p class="eyebrow">Գրանցում</p>
+    <h2>Գրանցումը տևում է մի քանի րոպե</h2>
+    <div class="reg-grid">
+      <div class="rg"><div class="rg-num">1</div><div class="rg-i">💳</div><p>Կատարում եք <strong>7,000 ֏</strong> մասնակցության վճարը</p></div>
+      <div class="rg"><div class="rg-num">2</div><div class="rg-i">📤</div><p>Ուղարկում եք <strong>վճարման կտրոնը</strong></p></div>
+      <div class="rg"><div class="rg-num">3</div><div class="rg-i">📝</div><p>Լրացնում եք <strong>գրանցման ձևը</strong></p></div>
+      <div class="rg"><div class="rg-num">4</div><div class="rg-i">📲</div><p>Միանում եք <strong>Telegram խմբին</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="contact">
+  <div class="container">
+    <p class="eyebrow">Կապ և գրանցում</p>
+    <h2>Ամրագրեք երեխայի տեղը հիմա</h2>
+    <div class="contact-grid">
+      <div class="ci-left">
+        <h3>Հարցերի դեպքում գրեք Instagram-ում</h3>
+        <p>Ամենաարագ կապի տարբերակը Instagram Direct-ն է։ Կուղարկենք գրանցման հղումը, վճարման մանրամասները և մրցույթի ամբողջական տեղեկատվությունը։ Կարող եք գրել հայերեն, ռուսերեն կամ անգլերեն։</p>
+        <a href="https://ig.me/m/youngitalent" target="_blank" class="btn-insta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Գրել Instagram-ում — @youngitalent
+        </a>
+        <p class="ci-note">Կարող եք նաև լրացնել արագ հաղորդագրությունը աջ կողմում։</p>
+      </div>
+      <div class="msg-form">
+        <h4>📩 Արագ հաղորդագրություն</h4>
+        <div class="fg"><label>Անուն</label><input type="text" id="fn" placeholder="Ձեր անունը"></div>
+        <div class="fg"><label>Հեռախոս կամ Instagram</label><input type="text" id="fc" placeholder="+374 XX XXXXXX կամ @username"></div>
+        <div class="fg"><label>Հարց կամ հաղորդագրություն</label><textarea id="fm" rows="3" placeholder="Ցանկանում եմ մասնակցել / ունեմ հարց ..."></textarea></div>
+        <button class="btn-send" onclick="sendMsg()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Ուղարկել Instagram-ի միջոցով
+        </button>
+        <div class="form-ok" id="fok">✅ Կտեղափոխվեք Instagram Direct — հաղորդագրությունը պատրաստ է։</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-box">
+    <div class="limit-tag">⚠️ Տեղերը սահմանափակ են</div>
+    <h2>Երեխայի առաջին քայլը դեպի IT կարող է սկսվել այսօր</h2>
+    <p>Մասնակցեք Young IT Talent մրցույթին և հնարավորություն տվեք երեխային ստանալ 1 ամսյա ամբողջական IT կրթություն՝ անվճար։ Սա փոքր քայլ է, որը կարող է բացել մեծ հետաքրքրություն դեպի տեխնոլոգիաներ, ստեղծագործական մտածողություն և ապագայի հմտություններ։</p>
+    <div class="cta-price-row">
+      <div><div class="cp-amt">7,000 ֏</div><div class="cp-sub">մրցույթի մասնակցություն</div></div>
+      <div class="cp-sep"></div>
+      <div><div class="cp-free">ԱՆՎՃԱՐ</div><div class="cp-sub">դասընթաց հաղթողների համար</div></div>
+    </div>
+    <a href="https://ig.me/m/youngitalent" target="_blank" class="btn-primary" style="margin:0 auto;display:inline-flex;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Գրանցվել Instagram-ում
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-logo">Young IT Talent</div>
+    <div class="f-by">✦ Կազմակերպվում է Success Academy-ի կողմից</div>
+    <div class="f-links">
+      <a href="https://www.instagram.com/youngitalent" target="_blank">Instagram @youngitalent</a>
+      <a href="#course">Ծրագիր</a>
+      <a href="#contact">Կապ</a>
+    </div>
+    <div class="f-copy">© 2026 Young IT Talent · Success Academy · Բոլոր իրավունքները պաշտպանված են</div>
+  </div>
+</footer>
+
+<script>
+const steps = document.querySelectorAll('.step');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting) setTimeout(()=>e.target.classList.add('vis'),i*120);});
+},{threshold:.1});
+steps.forEach(s=>io.observe(s));
+function sendMsg(){
+  const name=document.getElementById('fn').value.trim();
+  const contact=document.getElementById('fc').value.trim();
+  const msg=document.getElementById('fm').value.trim();
+  if(!name&&!msg){alert('Խնդրում ենք լրացնել առնվազն անունը և հաղորդագրությունը։');return;}
+  const text = encodeURIComponent(`Բարև, ցանկանում եմ գրանցվել Young IT Talent մրցույթին։\nԱնուն՝ ${name}\nԿապ՝ ${contact}\nՀաղորդագրություն՝ ${msg}`);
+  document.getElementById('fok').style.display='block';
+  setTimeout(()=>{window.open('https://ig.me/m/youngitalent','_blank');},700);
+}
+</script>
+</body>
+</html>
