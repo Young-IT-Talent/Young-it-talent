@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // Always open from the top/home section, not from the browser's saved scroll position
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.addEventListener('pageshow', function () {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  });
+</script>
 <title>Young IT Talent — Success Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Noto+Sans+Armenian:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -452,46 +463,131 @@ footer { border-top: 1px solid var(--border); padding: 2rem 1.2rem; text-align: 
 
 @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: none; } }
 
-/* MOBILE EXTRA */
+/* MOBILE EXTRA — breathing space and cleaner first screen */
+@media(max-width:640px){
+  nav {
+    padding: .95rem 1.15rem;
+  }
+  .nav-logo .top { font-size: .95rem; }
+  .nav-logo .sub { font-size: .54rem; letter-spacing: 1.1px; }
+  .btn-nav { padding: .5rem 1rem; font-size: .76rem; }
 
-@media(max-width:600px){
-  nav { padding: .8rem 1rem; }
-  .nav-logo .top { font-size: .9rem; }
-  .btn-nav { padding: .46rem .95rem; font-size: .76rem; }
-  .hero { min-height: auto; padding: 6.4rem 1.05rem 3.2rem; }
-  h1 { font-size: clamp(2rem, 10vw, 3.15rem); line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 1.35rem; }
-  h2 { line-height: 1.2; margin-bottom: 1rem; }
-  .hero-badge, .academy-tag span, .online-pill { max-width: 100%; line-height: 1.5; }
-  .hero-sub { font-size: .9rem; line-height: 1.95; margin-bottom: 1.9rem; }
-  .talent-note { font-size: .84rem; line-height: 1.9; padding: 1rem; margin: 1.25rem 0 1.5rem; }
-  section { padding: 3.3rem 1.05rem; }
-  .sec-sub { font-size: .88rem; line-height: 1.9; margin-bottom: 2rem; }
-  .trust { padding: 1.25rem 1rem; overflow: visible; }
-  .trust-inner { align-items: stretch; gap: .75rem; }
-  .t-item { width: 100%; white-space: normal; background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 12px; padding: .75rem .85rem; line-height: 1.55; }
-  .online-banner, .academy-wrap, .course-box, .contact-card, .final-box { border-radius: 18px; }
-  .online-banner, .academy-wrap { padding: 1.35rem; gap: 1.25rem; }
-  .ob-left p, .academy-wrap > div > p, .step p, .cb-item p, .sc p, .rg p, .ci-left p, .contact-card p { line-height: 1.85; }
-  .ob-right, .contact-mini-list { gap: .85rem; }
-  .step { grid-template-columns: 42px 1fr; gap: .95rem; padding: 1.35rem 0; }
-  .step-n { width: 40px; height: 40px; border-radius: 11px; }
-  .cb-top { padding: 1.55rem 1.25rem; }
-  .cb-item { padding: 1.35rem; }
-  .score-row, .reg-grid, .contact-grid { gap: 1rem; }
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding: 7.4rem 1.35rem 4.4rem;
+  }
+  .hero-badge {
+    margin-bottom: 1.25rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+  .academy-tag {
+    margin-bottom: 1.35rem;
+    line-height: 1.6;
+    width: 100%;
+  }
+  .academy-tag span {
+    display: inline-block;
+    padding: .38rem .85rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.8px;
+    margin-bottom: 1.45rem;
+  }
+  h2 { line-height: 1.22; margin-bottom: 1.05rem; }
+  .online-pill {
+    width: 100%;
+    padding: .72rem .95rem;
+    border-radius: 18px;
+    line-height: 1.55;
+    margin-bottom: 1.35rem;
+  }
+  .hero-sub {
+    font-size: .94rem;
+    line-height: 1.98;
+    margin-bottom: 1.75rem;
+    max-width: 100%;
+  }
+  .grade-strip {
+    gap: .5rem;
+    margin-bottom: 1.75rem;
+  }
+  .gp { padding: .32rem .78rem; }
+  .price-row {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 1.9rem;
+  }
+  .pr-cell {
+    flex: 1;
+    padding: .95rem .75rem;
+  }
+  .talent-note {
+    margin: .15rem auto 1.9rem;
+    padding: 1.15rem 1.05rem;
+    font-size: .88rem;
+    line-height: 1.9;
+    border-radius: 18px;
+  }
+  .hero-btns {
+    width: 100%;
+    gap: .95rem;
+  }
+  .btn-primary, .btn-ghost {
+    min-height: 52px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.45;
+  }
+  .urgency {
+    margin-top: 1.15rem;
+    line-height: 1.65;
+    max-width: 320px;
+  }
+
+  .trust { padding: 1.75rem 1.2rem; overflow: visible; }
+  .trust-inner { align-items: stretch; gap: .85rem; }
+  .t-item {
+    width: 100%;
+    white-space: normal;
+    line-height: 1.55;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: .85rem 1rem;
+  }
+
+  section { padding: 4.5rem 1.35rem; }
+  .sec-sub { font-size: .9rem; line-height: 1.9; margin-bottom: 2.1rem; }
+  .online-banner, .academy-wrap, .course-box, .contact-card, .final-box { border-radius: 22px; }
+  .online-banner, .academy-wrap { padding: 1.55rem; gap: 1.35rem; }
+  .ob-left p, .academy-wrap > div > p, .step p, .cb-item p, .sc p, .rg p, .ci-left p, .contact-card p { line-height: 1.9; }
+  .ob-right, .contact-mini-list { gap: .9rem; }
+  .ob-item, .sc, .rg, .contact-mini-item { padding: 1.05rem; }
+  .step { grid-template-columns: 44px 1fr; gap: 1rem; padding: 1.65rem 0; }
+  .step-n { width: 42px; height: 42px; border-radius: 11px; }
+  .cb-top { padding: 1.7rem 1.25rem; }
+  .cb-item { padding: 1.45rem; }
+  .score-row, .reg-grid, .contact-grid { gap: 1.1rem; }
   .reg-grid { grid-template-columns: 1fr; }
-  .rg { padding: 1.25rem 1rem; }
-  .contact-grid { margin-top: 1.6rem; }
-  .btn-insta, .btn-primary, .btn-ghost { white-space: normal; text-align: center; line-height: 1.45; }
-  .final-box { padding: 2.15rem 1.2rem; }
+  .rg { padding: 1.3rem 1rem; }
+  .contact-grid { margin-top: 1.7rem; }
+  .btn-insta { min-height: 54px; }
+  .final-box { padding: 2.2rem 1.25rem; }
   .cta-price-row { width: 100%; justify-content: center; align-items: stretch; }
-  .cp-sub { line-height: 1.35; }
+  .cp-sub { line-height: 1.4; }
 }
 
 @media(max-width:400px){
+  .hero { padding: 7rem 1.15rem 4rem; }
   .hero-btns { flex-direction: column; align-items: stretch; }
-  .btn-primary, .btn-ghost { justify-content: center; }
+  .btn-primary, .btn-ghost { justify-content: center; width: 100%; }
   .price-row { flex-direction: column; border-radius: 14px; }
   .pr-sep { width: 100%; height: 1px; }
+  .cta-price-row { width: 100%; justify-content: center; }
 }
 </style>
 </head>
