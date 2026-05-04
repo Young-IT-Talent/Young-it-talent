@@ -358,6 +358,27 @@ hr.div { border: none; border-top: 1px solid var(--border); }
 .btn-insta:active { transform: translateY(0); }
 .btn-insta svg { width: 20px; height: 20px; flex-shrink: 0; }
 .ci-note { font-size: .74rem; color: var(--gray); }
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 18px;
+  padding: 1.6rem;
+}
+.contact-card h4 { font-size: .98rem; margin-bottom: .8rem; }
+.contact-card p { color: var(--gray); font-size: .86rem; line-height: 1.75; margin-bottom: 1rem; }
+.contact-mini-list { display: grid; gap: .75rem; margin: 1.1rem 0 1.25rem; }
+.contact-mini-item {
+  display: flex; gap: .7rem; align-items: flex-start;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .85rem .95rem;
+  color: var(--gray);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+.contact-mini-item strong { color: var(--white); }
 .msg-form {
   background: var(--card); border: 1px solid var(--border2);
   border-radius: 18px; padding: 1.6rem;
@@ -432,6 +453,40 @@ footer { border-top: 1px solid var(--border); padding: 2rem 1.2rem; text-align: 
 @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: none; } }
 
 /* MOBILE EXTRA */
+
+@media(max-width:600px){
+  nav { padding: .8rem 1rem; }
+  .nav-logo .top { font-size: .9rem; }
+  .btn-nav { padding: .46rem .95rem; font-size: .76rem; }
+  .hero { min-height: auto; padding: 6.4rem 1.05rem 3.2rem; }
+  h1 { font-size: clamp(2rem, 10vw, 3.15rem); line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 1.35rem; }
+  h2 { line-height: 1.2; margin-bottom: 1rem; }
+  .hero-badge, .academy-tag span, .online-pill { max-width: 100%; line-height: 1.5; }
+  .hero-sub { font-size: .9rem; line-height: 1.95; margin-bottom: 1.9rem; }
+  .talent-note { font-size: .84rem; line-height: 1.9; padding: 1rem; margin: 1.25rem 0 1.5rem; }
+  section { padding: 3.3rem 1.05rem; }
+  .sec-sub { font-size: .88rem; line-height: 1.9; margin-bottom: 2rem; }
+  .trust { padding: 1.25rem 1rem; overflow: visible; }
+  .trust-inner { align-items: stretch; gap: .75rem; }
+  .t-item { width: 100%; white-space: normal; background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 12px; padding: .75rem .85rem; line-height: 1.55; }
+  .online-banner, .academy-wrap, .course-box, .contact-card, .final-box { border-radius: 18px; }
+  .online-banner, .academy-wrap { padding: 1.35rem; gap: 1.25rem; }
+  .ob-left p, .academy-wrap > div > p, .step p, .cb-item p, .sc p, .rg p, .ci-left p, .contact-card p { line-height: 1.85; }
+  .ob-right, .contact-mini-list { gap: .85rem; }
+  .step { grid-template-columns: 42px 1fr; gap: .95rem; padding: 1.35rem 0; }
+  .step-n { width: 40px; height: 40px; border-radius: 11px; }
+  .cb-top { padding: 1.55rem 1.25rem; }
+  .cb-item { padding: 1.35rem; }
+  .score-row, .reg-grid, .contact-grid { gap: 1rem; }
+  .reg-grid { grid-template-columns: 1fr; }
+  .rg { padding: 1.25rem 1rem; }
+  .contact-grid { margin-top: 1.6rem; }
+  .btn-insta, .btn-primary, .btn-ghost { white-space: normal; text-align: center; line-height: 1.45; }
+  .final-box { padding: 2.15rem 1.2rem; }
+  .cta-price-row { width: 100%; justify-content: center; align-items: stretch; }
+  .cp-sub { line-height: 1.35; }
+}
+
 @media(max-width:400px){
   .hero-btns { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-ghost { justify-content: center; }
@@ -738,40 +793,25 @@ footer { border-top: 1px solid var(--border); padding: 2rem 1.2rem; text-align: 
 <section id="contact">
   <div class="container">
     <p class="eyebrow">Կապ և գրանցում</p>
-    <h2>Ամրագրեք տեղը հիմա</h2>
+    <h2>Գրանցումը կատարվում է Instagram-ով</h2>
     <div class="contact-grid">
       <div class="ci-left">
-        <h3>Հարցե՞ր ունեք։ Գրեք Instagram-ում</h3>
-        <p>Ամենաարագ կապի տարբերակը Instagram Direct Message-ն է։ Գրեք մեզ, և մենք կուղարկենք մրցույթի գրանցման մանրամասները, վճարման տվյալներն ու հաջորդ քայլերը։ Հիշեցնենք՝ վճարը դասընթացի համար չէ, այլ մրցույթին մասնակցելու համար։</p>
+        <h3>Գրեք մեզ, և մենք կուղարկենք մասնակցության քայլերը</h3>
+        <p>Հայտ լրացնելու երկար ձև չկա։ Գրանցումը կատարվում է ուղիղ Instagram Direct-ով, որպեսզի ծնողը արագ ստանա վճարման տվյալները, մրցույթի մանրամասները և հաջորդ քայլերը։</p>
+        <p><strong style="color:var(--white)">Կարևոր է․</strong> 7,000 ֏ վճարը դասընթաց գնելու համար չէ։ Դա մրցույթին մասնակցության վճարն է։ Դասընթացը առանձին չի վաճառվում և հասանելի է միայն մրցույթի արդյունքում ընտրված երեխաներին։</p>
         <a href="https://ig.me/m/youngitalent?text=%D4%B2%D5%A1%D6%80%D6%87%20%40youngitalent%21%0A%0A%D5%91%D5%A1%D5%B6%D5%AF%D5%A1%D5%B6%D5%B8%D6%82%D5%B4%20%D5%A5%D5%B4%20%D5%A3%D6%80%D5%A1%D5%B6%D6%81%D5%A5%D5%AC%20Young%20IT%20Talent%20%D5%B4%D6%80%D6%81%D5%B8%D6%82%D5%B5%D5%A9%D5%AB%D5%B6%3A%0A%0A%D4%B1%D5%B6%D5%B8%D6%82%D5%B6%3A%20____%0A%D4%B4%D5%A1%D5%BD%D5%A1%D6%80%D5%A1%D5%B6%3A%20____%0A%D4%B5%D6%80%D5%AF%D5%AB%D6%80%2F%D6%84%D5%A1%D5%B2%D5%A1%D6%84%3A%20____%0A%D5%80%D5%A1%D6%80%D6%81%3A%20____" target="_blank" class="btn-insta">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          Գրեք @youngitalent-ին
+          Գրանցվել Instagram-ով
         </a>
-        <p class="ci-note">Կամ լրացրեք ձևը, և այն ավտոմատ կբացի Instagram հաղորդագրությունը։</p>
       </div>
-      <div class="msg-form">
-        <h4>📩 Արագ հայտ</h4>
-        <div class="fg">
-          <label>Անուն</label>
-          <input type="text" id="fn" placeholder="Ձեր անունը">
+      <div class="contact-card">
+        <h4>Ինչ կլինի գրելուց հետո</h4>
+        <div class="contact-mini-list">
+          <div class="contact-mini-item">📩 <span><strong>Կստանաք գրանցման քայլերը</strong><br>վճարման տվյալներ, մասնակցության ձևաչափ և Telegram խմբի հղում։</span></div>
+          <div class="contact-mini-item">🏆 <span><strong>Երեխան կմասնակցի մրցույթին</strong><br>արդյունքները կգնահատվեն ճշգրտությամբ և արագությամբ։</span></div>
+          <div class="contact-mini-item">🎓 <span><strong>Լավագույնները կստանան դասընթացը անվճար</strong><br>դասընթացը չի վաճառվում առանձին․ այն նախատեսված է ընտրված տաղանդների համար։</span></div>
         </div>
-        <div class="fg">
-          <label>Դասարան</label>
-          <input type="text" id="fg2" placeholder="Օրինակ՝ 8-րդ">
-        </div>
-        <div class="fg">
-          <label>Երկիր / քաղաք</label>
-          <input type="text" id="fc" placeholder="Հայաստան, Ռուսաստան...">
-        </div>
-        <div class="fg">
-          <label>Հարց կամ հաղորդագրություն</label>
-          <textarea id="fm" rows="2" placeholder="Ցանկանում եմ գրանցվել / ունեմ հարց..."></textarea>
-        </div>
-        <button class="btn-send" onclick="sendMsg()">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          Ուղարկել Instagram-ով
-        </button>
-        <div class="form-ok" id="fok">✅ Հաղորդագրությունը պատրաստ է․ հիմա կբացվի Instagram-ը</div>
+        <p>Այս ձևաչափով մենք ոչ թե պարզապես դասընթաց ենք առաջարկում, այլ գտնում ենք այն երեխաներին, ովքեր արդեն ունեն հետաքրքրություն, արագ մտածողություն և IT ոլորտում աճելու ներուժ։</p>
       </div>
     </div>
   </div>
@@ -819,26 +859,7 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: .1 });
 steps.forEach(s => io.observe(s));
 
-// Form → Instagram DM with prefilled Armenian message
-function sendMsg() {
-  const name    = document.getElementById('fn').value.trim();
-  const grade   = document.getElementById('fg2').value.trim();
-  const country = document.getElementById('fc').value.trim();
-  const msg     = document.getElementById('fm').value.trim();
 
-  const text = `Բարև @youngitalent! 👋
-
-Ցանկանում եմ գրանցվել Young IT Talent մրցույթին։
-
-Անուն: ${name || '____'}
-Դասարան: ${grade || '____'}
-Երկիր/քաղաք: ${country || '____'}
-Հարց: ${msg || 'Ցանկանում եմ գրանցվել'}`;
-
-  const url = 'https://ig.me/m/youngitalent?text=' + encodeURIComponent(text);
-  document.getElementById('fok').style.display = 'block';
-  setTimeout(() => { window.open(url, '_blank'); }, 600);
-}
 </script>
 </body>
 </html>
